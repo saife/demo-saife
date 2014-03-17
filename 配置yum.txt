@@ -1,0 +1,42 @@
+一、配置yum库
+
+Virtualbox下的虚拟光驱位于/dev/sr0，所以，向virtualbox加载RHEL6.1的镜像后，就可以配置yum库了
+
+1.挂载镜像
+
+[root@RedHat~]#  mkdir /media/cdrom
+
+[root@redhat~]#  mount -o loop /dev/sr0/media/cdrom
+
+2.使镜像能开机自动挂载，也可以使用手动加载光驱。
+
+在/etc/fstab的最下面添加下面一句
+
+[root@redhat~]# vi /etc/fstab
+
+/dev/sr0               /media/cdrom           iso9660      ro,loop         0 0
+
+3.新建一个本地repo文件
+
+紫色的部分可以不要添加，只要黑体那部分就行了。
+
+[root@redhat~]# vi /etc/yum.repos.d/local.repo
+紫色部分可以不添加，黑色部分必须的
+黑色部分
+[Server]
+name=Server
+baseurl=file:///media/cdrom/Server
+enabled=1
+gpgcheck=0
+紫色部分
+[HighAvailability]
+name=HighAvailability
+baseurl=file:///media/cdrom/HighAvailability
+enabled=1
+gpgcheck=0
+
+[LoadBalancer]
+name=LoadBalancer
+baseurl=file:///media/cdrom/LoadBalancer
+enabled=1
+gpgcheck=0
