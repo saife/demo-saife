@@ -1,34 +1,34 @@
-Ò»¡¢ÅäÖÃyum¿â
+ä¸€ã€é…ç½®yumåº“
 
-VirtualboxÏÂµÄĞéÄâ¹âÇıÎ»ÓÚ/dev/sr0£¬ËùÒÔ£¬Ïòvirtualbox¼ÓÔØRHEL6.1µÄ¾µÏñºó£¬¾Í¿ÉÒÔÅäÖÃyum¿âÁË
+Virtualboxä¸‹çš„è™šæ‹Ÿå…‰é©±ä½äº/dev/sr0ï¼Œæ‰€ä»¥ï¼Œå‘virtualboxåŠ è½½RHEL6.1çš„é•œåƒåï¼Œå°±å¯ä»¥é…ç½®yumåº“äº†
 
-1.¹ÒÔØ¾µÏñ
+1.æŒ‚è½½é•œåƒ
 
 [root@RedHat~]#  mkdir /media/cdrom
 
 [root@redhat~]#  mount -o loop /dev/sr0/media/cdrom
 
-2.Ê¹¾µÏñÄÜ¿ª»ú×Ô¶¯¹ÒÔØ£¬Ò²¿ÉÒÔÊ¹ÓÃÊÖ¶¯¼ÓÔØ¹âÇı¡£
+2.ä½¿é•œåƒèƒ½å¼€æœºè‡ªåŠ¨æŒ‚è½½ï¼Œä¹Ÿå¯ä»¥ä½¿ç”¨æ‰‹åŠ¨åŠ è½½å…‰é©±ã€‚
 
-ÔÚ/etc/fstabµÄ×îÏÂÃæÌí¼ÓÏÂÃæÒ»¾ä
+åœ¨/etc/fstabçš„æœ€ä¸‹é¢æ·»åŠ ä¸‹é¢ä¸€å¥
 
 [root@redhat~]# vi /etc/fstab
 
 /dev/sr0               /media/cdrom           iso9660      ro,loop         0 0
 
-3.ĞÂ½¨Ò»¸ö±¾µØrepoÎÄ¼ş
+3.æ–°å»ºä¸€ä¸ªæœ¬åœ°repoæ–‡ä»¶
 
-×ÏÉ«µÄ²¿·Ö¿ÉÒÔ²»ÒªÌí¼Ó£¬Ö»ÒªºÚÌåÄÇ²¿·Ö¾ÍĞĞÁË¡£
+ç´«è‰²çš„éƒ¨åˆ†å¯ä»¥ä¸è¦æ·»åŠ ï¼Œåªè¦é»‘ä½“é‚£éƒ¨åˆ†å°±è¡Œäº†ã€‚
 
 [root@redhat~]# vi /etc/yum.repos.d/local.repo
-×ÏÉ«²¿·Ö¿ÉÒÔ²»Ìí¼Ó£¬ºÚÉ«²¿·Ö±ØĞëµÄ
-ºÚÉ«²¿·Ö
+ç´«è‰²éƒ¨åˆ†å¯ä»¥ä¸æ·»åŠ ï¼Œé»‘è‰²éƒ¨åˆ†å¿…é¡»çš„
+é»‘è‰²éƒ¨åˆ†
 [Server]
 name=Server
 baseurl=file:///media/cdrom/Server
 enabled=1
 gpgcheck=0
-×ÏÉ«²¿·Ö
+ç´«è‰²éƒ¨åˆ†
 [HighAvailability]
 name=HighAvailability
 baseurl=file:///media/cdrom/HighAvailability
